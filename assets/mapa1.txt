@@ -1,0 +1,4 @@
+background1.png
+PLAYER;walk-sheet.png;100;380;
+QUIZ;entity_1.png;810;560;200;200;quiz;
+MOVE;arrow_right.png;1420;380;100;100;move;
