@@ -11,15 +11,14 @@ public class Main extends ApplicationAdapter {
     private SpriteBatch batch;
     private FitViewport viewport;
     private MapScene scene;
-    
 
     @Override
     public void create() {
         batch = new SpriteBatch();
-        viewport = new FitViewport(1536, 1024);   
+        viewport = new FitViewport(1536, 1024);
 
         MapModel model = MapLoader.load("mapa1.txt");
-        scene = new MapScene(model);   
+        scene = new MapScene(model);
     }
 
     @Override
@@ -27,24 +26,22 @@ public class Main extends ApplicationAdapter {
         float dt = Gdx.graphics.getDeltaTime();
 
         if (Gdx.input.justTouched()) {
-            Vector3 s = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
-            Vector3 world = viewport.unproject(s);
+            int sx = Gdx.input.getX();
+            int sy = Gdx.input.getY();
 
-            float targetX = world.x - scene.getPlayer().getWidth()  / 2f;
-            float targetY = world.y - scene.getPlayer().getHeight() / 2f;
-            scene.getPlayer().setTargetWorld(targetX, targetY); 
+            Vector3 world = viewport.getCamera().unproject(new Vector3(sx, sy, 0));
+            scene.setPlayerTarget(world.x, world.y);
         }
 
         scene.update(dt);
-
+        
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         viewport.apply();
         batch.setProjectionMatrix(viewport.getCamera().combined);
-
         batch.begin();
-        scene.render(batch, viewport.getWorldWidth(), viewport.getWorldHeight());
+        scene.render(batch, viewport.getWorldWidth(), viewport.getWorldHeight(), dt);
         batch.end();
     }
 
