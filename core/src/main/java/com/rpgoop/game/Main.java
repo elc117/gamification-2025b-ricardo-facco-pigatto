@@ -17,7 +17,7 @@ public class Main extends ApplicationAdapter {
         batch = new SpriteBatch();
         viewport = new FitViewport(1536, 1024);
 
-        MapModel model = MapLoader.load("mapa1.txt");
+        MapModel model = MapLoader.load("mapa1.json");
         scene = new MapScene(model);
     }
 
@@ -29,7 +29,8 @@ public class Main extends ApplicationAdapter {
             int sx = Gdx.input.getX();
             int sy = Gdx.input.getY();
 
-            Vector3 world = viewport.getCamera().unproject(new Vector3(sx, sy, 0));
+            Vector3 world = new Vector3(sx, sy, 0f);
+            viewport.unproject(world);
             scene.setPlayerTarget(world.x, world.y);
         }
 

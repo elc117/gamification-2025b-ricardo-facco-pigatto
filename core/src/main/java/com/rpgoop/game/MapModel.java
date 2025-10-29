@@ -17,7 +17,7 @@ public class MapModel {
     public static class EntitySpec {
         public String image;
         public float x, y;
-        public Float w, h;
+        public float w, h;
         public String type;
     }
 }

@@ -7,7 +7,6 @@ public final class PlayerModel {
     public float targetY;
     public float width;
     public float height;
-
     public float speed = 200f; 
     public boolean facingLeft = false;
 

@@ -8,10 +8,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MapScene {
     private final Texture backgroundTex;
-
     private final PlayerModel player;
     private final PlayerView playerView;
-
     private final List<Entity> entities = new ArrayList<>();
 
     public MapScene(MapModel model) {
@@ -22,16 +20,11 @@ public class MapScene {
         this.playerView = new PlayerView(p.image, p.scale, this.player);
 
         for (MapModel.EntitySpec e : model.entities) {
-            float w = (e.w != null ? e.w : -1f);
-            float h = (e.h != null ? e.h : -1f);
-            if ("quiz".equalsIgnoreCase(String.valueOf(e.type))) {
-                entities.add(w > 0 && h > 0
-                    ? new QuizEntity(e.image, e.x, e.y, w, h)
-                    : new QuizEntity(e.image, e.x, e.y, 64, 64)); // fallback
-            } else if ("move".equalsIgnoreCase(String.valueOf(e.type))) {
-                entities.add(w > 0 && h > 0
-                    ? new MoveEntity(e.image, e.x, e.y, w, h)
-                    : new MoveEntity(e.image, e.x, e.y, 64, 64));
+            if ("quiz".equals(String.valueOf(e.type))) {
+                entities.add(new QuizEntity(e.image, e.x, e.y, e.w, e.h));
+            } 
+            else if ("move".equals(String.valueOf(e.type))) {
+                entities.add(new MoveEntity(e.image, e.x, e.y, e.w, e.h));
             }
         }
     }

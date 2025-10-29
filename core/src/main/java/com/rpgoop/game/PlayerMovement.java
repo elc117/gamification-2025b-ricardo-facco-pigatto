@@ -1,8 +1,6 @@
 package com.rpgoop.game;
 
 public final class PlayerMovement {
-    private PlayerMovement() {}
-
     public static void update(PlayerModel p, float dt) {
         float dx = p.targetX - p.x;
         float dy = p.targetY - p.y;

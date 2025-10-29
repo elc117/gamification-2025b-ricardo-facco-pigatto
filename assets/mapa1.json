@@ -1,0 +1,27 @@
+{
+  "background": "background1.png",
+  "player": {
+    "image": "walk-sheet.png",
+    "x": 100,
+    "y": 380,
+    "scale": 10
+  },
+  "entities": [
+    {
+      "type": "quiz",
+      "image": "entity_1.png",
+      "x": 810,
+      "y": 560,
+      "w": 200,
+      "h": 200
+    },
+    {
+      "type": "move",
+      "image": "arrow_right.png",
+      "x": 1420,
+      "y": 380,
+      "w": 100,
+      "h": 100
+    }
+  ]
+}
