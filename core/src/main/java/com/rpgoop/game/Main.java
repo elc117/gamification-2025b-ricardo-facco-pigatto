@@ -10,15 +10,15 @@ import com.badlogic.gdx.math.Vector3;
 public class Main extends ApplicationAdapter {
     private SpriteBatch batch;
     private FitViewport viewport;
-    private MapScene scene;
+    private MapScene mapScene;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
         viewport = new FitViewport(1536, 1024);
 
-        MapModel model = MapLoader.load("mapa1.json");
-        scene = new MapScene(model);
+        MapModel mapModel = MapLoader.load("mapa1.json");
+        mapScene = new MapScene(mapModel);
     }
 
     @Override
@@ -31,10 +31,10 @@ public class Main extends ApplicationAdapter {
 
             Vector3 world = new Vector3(sx, sy, 0f);
             viewport.unproject(world);
-            scene.setPlayerTarget(world.x, world.y);
+            mapScene.setPlayerTarget(world.x, world.y);
         }
 
-        scene.update(dt);
+        mapScene.update(dt);
         
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -42,7 +42,7 @@ public class Main extends ApplicationAdapter {
         viewport.apply();
         batch.setProjectionMatrix(viewport.getCamera().combined);
         batch.begin();
-        scene.render(batch, viewport.getWorldWidth(), viewport.getWorldHeight(), dt);
+        mapScene.render(batch, viewport.getWorldWidth(), viewport.getWorldHeight(), dt);
         batch.end();
     }
 
@@ -53,7 +53,7 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void dispose() {
-        scene.dispose();
+        mapScene.dispose();
         batch.dispose();
     }
 }
