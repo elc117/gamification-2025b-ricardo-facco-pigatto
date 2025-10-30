@@ -2,9 +2,9 @@
   "background": "background1.png",
   "player": {
     "image": "walk-sheet.png",
-    "x": 100,
+    "x": 120,
     "y": 380,
-    "scale": 10
+    "scale": 0.35
   },
   "entities": [
     {

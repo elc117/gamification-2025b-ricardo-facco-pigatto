@@ -22,7 +22,7 @@ public final class MapLoader {
             ps.image = p.getString("image");
             ps.x = p.getFloat("x", 0f);
             ps.y = p.getFloat("y", 0f);
-            ps.scale = p.getFloat("scale", 10f);
+            ps.scale = p.getFloat("scale", 0.35f);
             model.player = ps;
         }
 
