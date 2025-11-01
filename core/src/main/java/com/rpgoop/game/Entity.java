@@ -39,14 +39,6 @@ public class Entity {
         texture.dispose();
     }
 
-    public Rectangle getBounds() {
-        return new Rectangle(pos.x, pos.y, width, height);
-    }
-
-    public boolean contains(float x, float y) {
-        return getBounds().contains(x, y);
-    }
-
     public float getX() { 
         return pos.x; 
     }

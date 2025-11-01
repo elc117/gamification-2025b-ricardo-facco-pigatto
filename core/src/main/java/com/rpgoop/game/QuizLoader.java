@@ -13,6 +13,7 @@ public class QuizLoader {
         QuizModel model = new QuizModel();
 
         model.background = root.getString("background");
+        model.question = root.getString("question");
 
         return model;
     }

@@ -23,7 +23,6 @@ public class QuizEntity extends Entity {
 
     @Override
     public void render(SpriteBatch batch) {
-        if (!visible) return;
         batch.draw(texture, pos.x, pos.y, width, height);
         if (check) {
             batch.draw(checkTex, pos.x, pos.y, width, height);
