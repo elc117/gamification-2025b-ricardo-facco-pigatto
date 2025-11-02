@@ -1,4 +1,11 @@
 {
   "background": "quiz1bg.png",
-  "question": "Olha só! Tinha uma mensagem dentro da carroça quebrada! Vamos ver o que ela diz...\n\n\"Quais são os três pilares da Programação Orientada a Objetos?\"\n\nNossa... Parece que alguém estava estudando enquanto dirigia. Bateu a carroça na árvore!"
+  "question": "Olha só! Tinha uma mensagem dentro da carroça quebrada! Vamos ver o que ela diz...\n\n\"Quais são os três pilares da Programação Orientada a Objetos?\"\n\nNossa... Parece que alguém estava estudando enquanto dirigia. Bateu a carroça na árvore!",
+  "answers": [
+    "herança, polimorfismo e instância",
+    "herança, polimorfismo e metodologia",
+    "encapsulamento, herança e polimorfismo",
+    "encapsulamento, polimorfismo e metodologia"
+  ],
+  "correctIndex": 2
 }

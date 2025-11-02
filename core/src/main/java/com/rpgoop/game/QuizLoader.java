@@ -14,6 +14,12 @@ public class QuizLoader {
 
         model.background = root.getString("background");
         model.question = root.getString("question");
+        model.correctIndex = root.getInt("correctIndex");
+
+        JsonValue answ = root.get("answers");
+        for (JsonValue a : answ) {
+            model.answers.add(a.asString());
+        }
 
         return model;
     }
