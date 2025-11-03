@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class MapScene {
     private final Texture backgroundTex;
@@ -42,9 +43,9 @@ public class MapScene {
         return player;
     }
 
-    public void update(float dt) {
+    public void update(float dt, Viewport viewport) {
         if (activeQuiz != null) {
-            activeQuiz.update(dt);
+            activeQuiz.update(dt, viewport);
             if (activeQuiz.getCompleted()) {
                 activeQuiz.dispose();
                 activeQuiz = null;
@@ -71,8 +72,8 @@ public class MapScene {
     private boolean isNearPlayer(Entity e, float radius) {
         float px = player.x + player.width  * 0.5f;
         float py = player.y + player.height * 0.5f;
-        float ex = e.pos.x   + e.width  * 0.5f;
-        float ey = e.pos.y   + e.height * 0.5f;
+        float ex = e.pos.x + e.width  * 0.5f;
+        float ey = e.pos.y + e.height * 0.5f;
         float dx = px - ex;
         float dy = py - ey;
         return dx*dx + dy*dy <= radius*radius;

@@ -7,7 +7,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class QuizScene {
     private final Texture backgroundTex;
@@ -37,17 +39,18 @@ public class QuizScene {
         font.setColor(Color.BLACK);
     }
 
-    public void update(float dt) {
+    public void update(float dt, Viewport viewport) {
         if (Gdx.input.justTouched()) {
-            completed = true;
+            if (correctAnswer(viewport)) {
+                completed = true;
+            }
         }
     }
 
     public void render(SpriteBatch batch, float worldW, float worldH) {
         batch.draw(backgroundTex, 0, 0, worldW, worldH);
-
-        float questionWidth = worldW * 0.4f; 
-        layout.setText(font, question, font.getColor(), questionWidth, Align.left, true);        
+ 
+        layout.setText(font, question, font.getColor(), 600, Align.left, true);        
         font.draw(batch, layout, 440, 910);
 
         for (int i = 0; i < answers.size(); i++) {
@@ -59,6 +62,27 @@ public class QuizScene {
             font.draw(batch, layout, x, y);
         }
     }
+
+    public boolean correctAnswer(Viewport viewport) {
+        Vector3 touchPos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
+        viewport.unproject(touchPos); 
+
+        float x = touchPos.x;
+        float y = touchPos.y;
+
+        for (int i = 0; i < answers.size(); i++) {
+            float answerX = answersSlots[i][0] - 60;
+            float answerY = answersSlots[i][1] - 100;
+            float w = 300, h = 115;
+
+            if (x >= answerX && x <= answerX + w &&
+                y >= answerY && y <= answerY + h) {
+                return i == correctIndex;
+            }
+        }
+        return false;
+    }
+
 
     public boolean getCompleted() { 
         return completed; 

@@ -23,8 +23,6 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void render() {
-        float dt = Gdx.graphics.getDeltaTime();
-
         if (Gdx.input.justTouched()) {
             int sx = Gdx.input.getX();
             int sy = Gdx.input.getY();
@@ -34,7 +32,7 @@ public class Main extends ApplicationAdapter {
             mapScene.setPlayerTarget(world.x, world.y);
         }
 
-        mapScene.update(dt);
+        mapScene.update(Gdx.graphics.getDeltaTime(), viewport);
         
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -42,7 +40,7 @@ public class Main extends ApplicationAdapter {
         viewport.apply();
         batch.setProjectionMatrix(viewport.getCamera().combined);
         batch.begin();
-        mapScene.render(batch, viewport.getWorldWidth(), viewport.getWorldHeight(), dt);
+        mapScene.render(batch, viewport.getWorldWidth(), viewport.getWorldHeight(), Gdx.graphics.getDeltaTime());
         batch.end();
     }
 
