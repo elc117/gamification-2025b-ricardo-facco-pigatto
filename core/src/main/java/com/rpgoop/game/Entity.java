@@ -2,7 +2,6 @@ package com.rpgoop.game;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public class Entity {
@@ -28,7 +27,6 @@ public class Entity {
     }
 
     public void render(SpriteBatch batch) {
-        if (!visible) return;
         batch.draw(texture, pos.x, pos.y, width, height);
     }
 
