@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -13,8 +14,12 @@ public class MapScene {
     private final PlayerModel player;
     private final PlayerView playerView;
     private final List<Entity> entities = new ArrayList<>();
+
     private QuizScene activeQuiz;
+    private QuizEntity activeQuizOwner;
     private Set<Entity> consumedQuizzes = new HashSet<>();
+    private String requestedNextMap = null;
+
     private int completedQuizzes = 0;
 
     public MapScene(MapModel model) {
@@ -26,10 +31,10 @@ public class MapScene {
 
         for (MapModel.EntitySpec e : model.entities) {
             if ("quiz".equals(String.valueOf(e.type))) {
-                entities.add(new QuizEntity(e.image, e.x, e.y, e.w, e.h));
+                entities.add(new QuizEntity(e.image, e.x, e.y, e.w, e.h, e.file));
             } 
             else if ("move".equals(String.valueOf(e.type))) {
-                entities.add(new MoveEntity(e.image, e.x, e.y, e.w, e.h));
+                entities.add(new MoveEntity(e.image, e.x, e.y, e.w, e.h, e.file));
             }
         }
     }
@@ -49,6 +54,9 @@ public class MapScene {
             if (activeQuiz.getCompleted()) {
                 activeQuiz.dispose();
                 activeQuiz = null;
+                activeQuizOwner.setCheck(true);
+                consumedQuizzes.add(activeQuizOwner);
+                activeQuizOwner = null;
                 completedQuizzes++;
             }
             return;
@@ -59,10 +67,18 @@ public class MapScene {
 
         for (Entity e : entities) {
             if (e instanceof QuizEntity && !consumedQuizzes.contains(e)) {
-                if (isNearPlayer(e, 80f)) { 
-                    activeQuiz = new QuizScene(QuizLoader.load("quiz1.json"));
-                    consumedQuizzes.add(e);
-                    ((QuizEntity)e).setCheck(true);
+                QuizEntity qe = (QuizEntity)e;
+                if (isNearPlayer(qe, 80f)) {
+                    String path = qe.getFile();
+                    activeQuiz = new QuizScene(QuizLoader.load(path));
+                    activeQuizOwner = qe;
+                    break;
+                } 
+            }
+            else if (e instanceof MoveEntity) {
+                MoveEntity me = (MoveEntity)e;
+                if (isNearPlayer(me, 80f)) {
+                    requestedNextMap = me.getFile();
                     break;
                 }
             }
@@ -90,6 +106,12 @@ public class MapScene {
             e.render(batch);
         }
         playerView.render(batch, player, dt);
+    }
+
+    public String consumeRequestedNextMap() {
+        String tmp = requestedNextMap;
+        requestedNextMap = null;
+        return tmp;
     }
 
     public void dispose() {

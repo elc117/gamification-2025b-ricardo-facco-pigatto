@@ -1,0 +1,9 @@
+{
+  "background": "background2.png",
+  "player": {
+    "image": "walk-sheet.png",
+    "x": 120,
+    "y": 380,
+    "scale": 0.35
+  }
+}

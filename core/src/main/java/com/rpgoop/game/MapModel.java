@@ -19,5 +19,6 @@ public class MapModel {
         public float x, y;
         public float w, h;
         public String type;
+        public String file;
     }
 }

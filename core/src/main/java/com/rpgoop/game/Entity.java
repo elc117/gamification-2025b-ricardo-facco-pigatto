@@ -9,8 +9,6 @@ public class Entity {
     protected Vector2 pos = new Vector2(); 
     protected float width;
     protected float height;
-    protected boolean visible = true;
-
 
     public Entity(String texturePath, float x, float y) {
         this.texture = new Texture(texturePath);
@@ -51,8 +49,5 @@ public class Entity {
     }
     public void setPosition(float x, float y) { 
         pos.set(x, y); 
-    }
-    public void setVisible(boolean v) { 
-        visible = v;
     }
 }

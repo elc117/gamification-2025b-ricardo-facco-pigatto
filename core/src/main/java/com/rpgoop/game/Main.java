@@ -34,6 +34,13 @@ public class Main extends ApplicationAdapter {
 
         mapScene.update(Gdx.graphics.getDeltaTime(), viewport);
         
+        String next = mapScene.consumeRequestedNextMap();
+        if (next != null) {
+            mapScene.dispose();
+            MapModel m = MapLoader.load(next);
+            mapScene = new MapScene(m);
+        }
+
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 

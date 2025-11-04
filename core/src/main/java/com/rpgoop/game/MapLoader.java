@@ -37,6 +37,7 @@ public final class MapLoader {
                 es.y = e.getFloat("y", 0f);
                 es.w = e.getFloat("w");
                 es.h = e.getFloat("h");
+                es.file = e.getString("file");
                 model.entities.add(es);
             }
         }
