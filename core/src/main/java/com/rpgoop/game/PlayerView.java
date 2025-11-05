@@ -12,6 +12,8 @@ public final class PlayerView {
     private final TextureRegion f2;
     private final TextureRegion f3;
     private final TextureRegion f4;
+    private final TextureRegion f5;
+    private final TextureRegion f6;
     private TextureRegion current;
     private float timer = 0f;
     private final int frameWpx;
@@ -19,7 +21,7 @@ public final class PlayerView {
 
     public PlayerView(String sheetPath, float scale, PlayerModel model) {
         this.sheet = new Texture(Gdx.files.internal(sheetPath));
-        this.frameWpx = sheet.getWidth() / 5;
+        this.frameWpx = sheet.getWidth() / 7;
         this.frameHpx = sheet.getHeight();
 
         this.idle = new TextureRegion(sheet, 0 * frameWpx, 0, frameWpx, frameHpx);
@@ -27,6 +29,8 @@ public final class PlayerView {
         this.f2 = new TextureRegion(sheet, 2 * frameWpx, 0, frameWpx, frameHpx);
         this.f3 = new TextureRegion(sheet, 3 * frameWpx, 0, frameWpx, frameHpx);
         this.f4 = new TextureRegion(sheet, 4 * frameWpx, 0, frameWpx, frameHpx);
+        this.f5 = new TextureRegion(sheet, 5 * frameWpx, 0, frameWpx, frameHpx);
+        this.f6 = new TextureRegion(sheet, 6 * frameWpx, 0, frameWpx, frameHpx);
         this.current = idle;
 
         if (model.width <= 0f || model.height <= 0f) {
@@ -42,12 +46,14 @@ public final class PlayerView {
     
         timer += dt;
         if (dist2 > 0.5f * 0.5f) {
-            int frameIndex = (int)(timer / 0.15f) % 4; 
+            int frameIndex = (int)(timer / 0.15f) % 6; 
             switch (frameIndex) {
                 case 0: current = f1; break;
                 case 1: current = f2; break;
                 case 2: current = f3; break;
-                default: current = f4; break;
+                case 3: current = f4; break;
+                case 4: current = f5; break;
+                default: current = f6; break;
             }
         } else {
             current = idle;
