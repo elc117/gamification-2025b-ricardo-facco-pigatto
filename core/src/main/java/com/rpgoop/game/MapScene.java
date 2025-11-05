@@ -18,7 +18,10 @@ public class MapScene {
     private QuizScene activeQuiz;
     private QuizEntity activeQuizOwner;
     private Set<Entity> consumedQuizzes = new HashSet<>();
+
     private String requestedNextMap = null;
+    private Float requestedSpawnX = null;
+    private Float requestedSpawnY = null;
 
     private int completedQuizzes = 0;
 
@@ -34,7 +37,7 @@ public class MapScene {
                 entities.add(new QuizEntity(e.image, e.x, e.y, e.w, e.h, e.file));
             } 
             else if ("move".equals(String.valueOf(e.type))) {
-                entities.add(new MoveEntity(e.image, e.x, e.y, e.w, e.h, e.file));
+                entities.add(new MoveEntity(e.image, e.x, e.y, e.w, e.h, e.file, e.spawnX, e.spawnY));
             }
         }
     }
@@ -79,6 +82,8 @@ public class MapScene {
                 MoveEntity me = (MoveEntity)e;
                 if (isNearPlayer(me, 80f)) {
                     requestedNextMap = me.getFile();
+                    requestedSpawnX = me.getSpawnX();
+                    requestedSpawnY = me.getSpawnY();
                     break;
                 }
             }
@@ -95,6 +100,20 @@ public class MapScene {
         return dx*dx + dy*dy <= radius*radius;
     }
 
+    public String consumeRequestedNextMap() {
+        String tmp = requestedNextMap;
+        requestedNextMap = null;
+        return tmp;
+    }
+
+    public Float[] consumeRequestedSpawn() {
+        if(requestedSpawnX == null || requestedSpawnY == null) return null;
+        Float[] tmp = new Float[] {requestedSpawnX, requestedSpawnY};
+        requestedSpawnX = null;
+        requestedSpawnY = null;
+        return tmp;
+    }
+
     public void render(SpriteBatch batch, float worldW, float worldH, float dt) {
         if (activeQuiz != null) {
             activeQuiz.render(batch, worldW, worldH);
@@ -106,12 +125,6 @@ public class MapScene {
             e.render(batch);
         }
         playerView.render(batch, player, dt);
-    }
-
-    public String consumeRequestedNextMap() {
-        String tmp = requestedNextMap;
-        requestedNextMap = null;
-        return tmp;
     }
 
     public void dispose() {

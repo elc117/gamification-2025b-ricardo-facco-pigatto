@@ -36,9 +36,19 @@ public class Main extends ApplicationAdapter {
         
         String next = mapScene.consumeRequestedNextMap();
         if (next != null) {
+            Float[] spawn = mapScene.consumeRequestedSpawn();
+
             mapScene.dispose();
             MapModel m = MapLoader.load(next);
             mapScene = new MapScene(m);
+            
+            if(spawn != null) {
+                PlayerModel p = mapScene.getPlayerModel();
+                p.x = spawn[0];
+                p.y = spawn[1];
+                p.targetX = spawn[0];
+                p.targetY = spawn[1];
+            }
         }
 
         Gdx.gl.glClearColor(0, 0, 0, 1);

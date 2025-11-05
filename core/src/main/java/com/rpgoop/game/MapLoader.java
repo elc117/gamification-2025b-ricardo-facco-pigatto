@@ -38,6 +38,8 @@ public final class MapLoader {
                 es.w = e.getFloat("w");
                 es.h = e.getFloat("h");
                 es.file = e.getString("file");
+                if(e.has("spawnX")) es.spawnX = e.getFloat("spawnX");
+                if(e.has("spawnY")) es.spawnY = e.getFloat("spawnY");
                 model.entities.add(es);
             }
         }

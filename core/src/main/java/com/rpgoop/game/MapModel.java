@@ -20,5 +20,7 @@ public class MapModel {
         public float w, h;
         public String type;
         public String file;
+        public Float spawnX;
+        public Float spawnY;
     }
 }

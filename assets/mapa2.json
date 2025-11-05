@@ -2,8 +2,21 @@
   "background": "background2.png",
   "player": {
     "image": "walk-sheet.png",
-    "x": 120,
-    "y": 380,
+    "x": 150,
+    "y": 460,
     "scale": 0.35
-  }
+  },
+  "entities": [
+    {
+      "type": "move",
+      "image": "arrow_left.png",
+      "x": 10,
+      "y": 440,
+      "w": 100,
+      "h": 100,
+      "file": "mapa1.json",
+      "spawnX": 1350,
+      "spawnY": 400
+    }
+  ]
 }
