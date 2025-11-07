@@ -23,8 +23,6 @@ public class MapScene {
     private Float requestedSpawnX = null;
     private Float requestedSpawnY = null;
 
-    private int completedQuizzes = 0;
-
     public MapScene(MapModel model) {
         this.backgroundTex = new Texture(model.background);
 
@@ -60,7 +58,7 @@ public class MapScene {
                 activeQuizOwner.setCheck(true);
                 consumedQuizzes.add(activeQuizOwner);
                 activeQuizOwner = null;
-                completedQuizzes++;
+
             }
             return;
         }
