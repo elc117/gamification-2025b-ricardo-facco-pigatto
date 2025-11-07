@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-public class MapScene {
+public class MapScene {     
     private final Texture backgroundTex;
     private final PlayerModel player;
     private final PlayerView playerView;
@@ -17,7 +17,7 @@ public class MapScene {
 
     private QuizScene activeQuiz;
     private QuizEntity activeQuizOwner;
-    private Set<Entity> consumedQuizzes = new HashSet<>();
+    private Set<String> completedQuizzes = new HashSet<>();
 
     private String requestedNextMap = null;
     private Float requestedSpawnX = null;
@@ -56,7 +56,7 @@ public class MapScene {
                 activeQuiz.dispose();
                 activeQuiz = null;
                 activeQuizOwner.setCheck(true);
-                consumedQuizzes.add(activeQuizOwner);
+                completedQuizzes.add(activeQuizOwner.getFile());
                 activeQuizOwner = null;
 
             }
@@ -67,8 +67,14 @@ public class MapScene {
         for (Entity e : entities) e.update(dt);
 
         for (Entity e : entities) {
-            if (e instanceof QuizEntity && !consumedQuizzes.contains(e)) {
+            if (e instanceof QuizEntity) {
                 QuizEntity qe = (QuizEntity)e;
+
+                if (completedQuizzes.contains(qe.getFile())) {
+                    qe.setCheck(true);
+                    continue;
+                }
+
                 if (isNearPlayer(qe, 80f)) {
                     String path = qe.getFile();
                     activeQuiz = new QuizScene(QuizLoader.load(path));
@@ -102,6 +108,13 @@ public class MapScene {
         String tmp = requestedNextMap;
         requestedNextMap = null;
         return tmp;
+    }
+
+    public Set<String> consumeCompletedQuizzes(){
+        return new HashSet<>(completedQuizzes);
+    }
+    public void setCompletedQuizzes(Set<String> completedQuizzes) {
+        this.completedQuizzes.addAll(completedQuizzes);
     }
 
     public Float[] consumeRequestedSpawn() {

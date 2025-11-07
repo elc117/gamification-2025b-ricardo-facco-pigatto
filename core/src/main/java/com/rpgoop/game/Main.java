@@ -1,5 +1,7 @@
 package com.rpgoop.game;
 
+import java.util.Set;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -37,10 +39,14 @@ public class Main extends ApplicationAdapter {
         String next = mapScene.consumeRequestedNextMap();
         if (next != null) {
             Float[] spawn = mapScene.consumeRequestedSpawn();
-
+            Set<String> completedQuizzes = mapScene.consumeCompletedQuizzes();
+            
             mapScene.dispose();
             MapModel m = MapLoader.load(next);
             mapScene = new MapScene(m);
+            mapScene.setCompletedQuizzes(completedQuizzes);
+        
+            System.out.println(completedQuizzes);
             
             if(spawn != null) {
                 PlayerModel p = mapScene.getPlayerModel();
