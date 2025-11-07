@@ -1,5 +1,5 @@
 {
-  "background": "background1.png",
+  "background": "map_background/background1.png",
   "player": {
     "image": "walk-sheet.png",
     "x": 120,
@@ -9,12 +9,12 @@
   "entities": [
     {
       "type": "quiz",
-      "image": "entity_1.png",
+      "image": "quiz_entity/entity_1.png",
       "x": 810,
       "y": 560,
       "w": 200,
       "h": 200,
-      "file": "quiz1.json"
+      "file": "json_files/quiz1.json"
     },
     {
       "type": "move",
@@ -23,7 +23,7 @@
       "y": 380,
       "w": 100,
       "h": 100,
-      "file": "mapa2.json"
+      "file": "json_files/map2.json"
     }
   ]
 }

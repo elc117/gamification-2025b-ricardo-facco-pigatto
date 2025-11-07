@@ -19,7 +19,7 @@ public class Main extends ApplicationAdapter {
         batch = new SpriteBatch();
         viewport = new FitViewport(1536, 1024);
 
-        MapModel mapModel = MapLoader.load("mapa1.json");
+        MapModel mapModel = MapLoader.load("json_files/map1.json");
         mapScene = new MapScene(mapModel);
     }
 
@@ -45,8 +45,6 @@ public class Main extends ApplicationAdapter {
             MapModel m = MapLoader.load(next);
             mapScene = new MapScene(m);
             mapScene.setCompletedQuizzes(completedQuizzes);
-        
-            System.out.println(completedQuizzes);
             
             if(spawn != null) {
                 PlayerModel p = mapScene.getPlayerModel();
