@@ -50,8 +50,8 @@ public class QuizScene {
     public void render(SpriteBatch batch, float worldW, float worldH) {
         batch.draw(backgroundTex, 0, 0, worldW, worldH);
  
-        layout.setText(font, question, font.getColor(), 600, Align.left, true);        
-        font.draw(batch, layout, 440, 910);
+        layout.setText(font, question, font.getColor(), 680, Align.left, true);        
+        font.draw(batch, layout, 400, 910);
 
         for (int i = 0; i < answers.size(); i++) {
             String text = answers.get(i);

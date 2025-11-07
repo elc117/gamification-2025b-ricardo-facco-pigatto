@@ -1,11 +1,11 @@
 {
   "background": "quiz_background/quiz2bg.png",
-  "question": "a",
+  "question": "- Ei, inseto. Foi você que quebrou a carroça ali atrás?\n\n- Carroça? Nem sei do que você fala. Eu só estava aqui me lamentando... não consegui derrotar o monstro lá em cima. Ele me fez uma pergunta estranha, algo como:\n\n\"Criar uma superclasse para que outras classes herdem e compartilhem um design comum é o propósito de que?\"",
   "answers": [
-    "a",
-    "a",
-    "a",
-    "a"
+    "um objeto",
+    "uma classe abstrata",
+    "uma subclasse",
+    "um construtor"
   ],
   "correctIndex": 1
 }
