@@ -21,10 +21,10 @@ public class QuizScene {
     private final GlyphLayout layout = new GlyphLayout();
 
     private final float[][] answersSlots = {
-        {415, 500}, 
-        {815, 500},
-        {415, 250}, 
-        {815, 250}  
+        {370, 500}, 
+        {780, 500},
+        {370, 250}, 
+        {780, 250}  
     };
 
     public QuizScene(QuizModel model) {
@@ -58,7 +58,7 @@ public class QuizScene {
             float x = answersSlots[i][0];
             float y = answersSlots[i][1];
 
-            layout.setText(font, text, font.getColor(), 200, Align.center, true);
+            layout.setText(font, text, font.getColor(), 285, Align.center, true);
             font.draw(batch, layout, x, y);
         }
     }
