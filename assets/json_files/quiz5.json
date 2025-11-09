@@ -1,0 +1,11 @@
+{
+  "background": "quiz_background/quiz5bg.png",
+  "question": "a",
+  "answers": [
+    "a",
+    "a",
+    "a",
+    "a"
+  ],
+  "correctIndex": 3
+}
