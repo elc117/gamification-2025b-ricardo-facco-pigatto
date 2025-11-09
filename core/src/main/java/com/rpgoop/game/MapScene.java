@@ -40,15 +40,6 @@ public class MapScene {
         }
     }
 
-    public void setPlayerTarget(float worldX, float worldY) {
-        player.targetX = worldX - player.width  * 0.5f;
-        player.targetY = worldY - player.height * 0.5f;
-    }
-
-    public PlayerModel getPlayerModel() {
-        return player;
-    }
-
     public void update(float dt, Viewport viewport) {
         if (activeQuiz != null) {
             activeQuiz.update(dt, viewport);
@@ -94,6 +85,28 @@ public class MapScene {
         }
     }
 
+    public void render(SpriteBatch batch, float worldW, float worldH, float dt) {
+        if (activeQuiz != null) {
+            activeQuiz.render(batch, worldW, worldH);
+            return;
+        }
+
+        batch.draw(backgroundTex, 0, 0, worldW, worldH);
+        for (Entity e : entities) {
+            e.render(batch);
+        }
+        playerView.render(batch, player, dt);
+    }
+
+    public void setPlayerTarget(float worldX, float worldY) {
+        player.targetX = worldX - player.width  * 0.5f;
+        player.targetY = worldY - player.height * 0.5f;
+    }
+
+    public PlayerModel getPlayerModel() {
+        return player;
+    }
+
     public boolean hasActiveQuiz() {
         return activeQuiz != null;
     }
@@ -127,19 +140,6 @@ public class MapScene {
         requestedSpawnX = null;
         requestedSpawnY = null;
         return tmp;
-    }
-
-    public void render(SpriteBatch batch, float worldW, float worldH, float dt) {
-        if (activeQuiz != null) {
-            activeQuiz.render(batch, worldW, worldH);
-            return;
-        }
-
-        batch.draw(backgroundTex, 0, 0, worldW, worldH);
-        for (Entity e : entities) {
-            e.render(batch);
-        }
-        playerView.render(batch, player, dt);
     }
 
     public void dispose() {

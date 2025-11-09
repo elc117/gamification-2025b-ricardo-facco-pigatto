@@ -19,6 +19,8 @@ public class QuizScene {
     private boolean completed = false;
     private final BitmapFont font;
     private final GlyphLayout layout = new GlyphLayout();
+    private Texture falseCheckTex;
+    private int wrongIndex = -1;
 
     private final float[][] answersSlots = {
         {370, 500}, 
@@ -37,11 +39,12 @@ public class QuizScene {
         font.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         font.getData().setScale(1.8f);
         font.setColor(Color.BLACK);
+        this.falseCheckTex = new Texture("false_check.png");
     }
 
     public void update(float dt, Viewport viewport) {
         if (Gdx.input.justTouched()) {
-            if (correctAnswer(viewport)) {
+            if (checkAnswer(viewport)) {
                 completed = true;
             }
         }
@@ -60,13 +63,16 @@ public class QuizScene {
 
             layout.setText(font, text, font.getColor(), 285, Align.center, true);
             font.draw(batch, layout, x, y);
+
+            if (wrongIndex == i) {
+                batch.draw(falseCheckTex, x+40, y-150, 200, 200);
+            }
         }
     }
 
-    public boolean correctAnswer(Viewport viewport) {
+    public boolean checkAnswer(Viewport viewport) {
         Vector3 touchPos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
         viewport.unproject(touchPos); 
-
         float x = touchPos.x;
         float y = touchPos.y;
 
@@ -77,7 +83,9 @@ public class QuizScene {
 
             if (x >= answerX && x <= answerX + w &&
                 y >= answerY && y <= answerY + h) {
-                return i == correctIndex;
+                if(i == correctIndex) {
+                    return true;
+                } else wrongIndex = i;
             }
         }
         return false;
