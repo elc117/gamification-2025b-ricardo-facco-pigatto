@@ -35,6 +35,15 @@
       "w": 100,
       "h": 100,
       "file": "json_files/map3.json"
+    },
+    {
+      "type": "move",
+      "image": "arrow_down.png",
+      "x": 680,
+      "y": 1,
+      "w": 100,
+      "h": 100,
+      "file": "json_files/map4.json"
     }
   ]
 }

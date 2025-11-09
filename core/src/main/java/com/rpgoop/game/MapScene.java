@@ -94,6 +94,10 @@ public class MapScene {
         }
     }
 
+    public boolean hasActiveQuiz() {
+        return activeQuiz != null;
+    }
+
     private boolean isNearPlayer(Entity e, float radius) {
         float px = player.x + player.width  * 0.5f;
         float py = player.y + player.height * 0.5f;
@@ -142,6 +146,5 @@ public class MapScene {
         backgroundTex.dispose();
         playerView.dispose();
         for (Entity e : entities) e.dispose();
-        activeQuiz.dispose();
     }
 }

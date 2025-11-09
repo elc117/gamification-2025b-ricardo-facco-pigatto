@@ -5,7 +5,7 @@
     "Overload muda parâmetros; Override muda método herdado.",
     "Overload -> classes diferentes, Override -> mesma classe.",
     "Override muda parâmetros; Overload muda método herdado.",
-    "Com Overload, pode-se ter 2 métodos com mesmos parâmetros."
+    "com Overload, pode-se ter 2 métodos com mesmos parâmetros."
   ],
   "correctIndex": 0
 }

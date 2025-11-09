@@ -25,7 +25,7 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void render() {
-        if (Gdx.input.justTouched()) {
+        if (!mapScene.hasActiveQuiz() && Gdx.input.justTouched()) {
             int sx = Gdx.input.getX();
             int sy = Gdx.input.getY();
 
