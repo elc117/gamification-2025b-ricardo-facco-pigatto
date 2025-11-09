@@ -141,5 +141,7 @@ public class MapScene {
     public void dispose() {
         backgroundTex.dispose();
         playerView.dispose();
+        for (Entity e : entities) e.dispose();
+        activeQuiz.dispose();
     }
 }
