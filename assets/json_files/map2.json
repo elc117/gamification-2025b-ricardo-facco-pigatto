@@ -10,10 +10,10 @@
     {
       "type": "quiz",
       "image": "quiz_entity/entity_2.png",
-      "x": 1050,
-      "y": 380,
-      "w": 158,
-      "h": 210,
+      "x": 990,
+      "y": 470,
+      "w": 300,
+      "h": 170,
       "file": "json_files/quiz2.json"
     },
     {
@@ -25,12 +25,12 @@
       "h": 100,
       "file": "json_files/map1.json",
       "spawnX": 1300,
-      "spawnY": 400
+      "spawnY": 440
     },
     {
       "type": "move",
       "image": "arrow_up.png",
-      "x": 650,
+      "x": 735,
       "y": 930,
       "w": 100,
       "h": 100,
