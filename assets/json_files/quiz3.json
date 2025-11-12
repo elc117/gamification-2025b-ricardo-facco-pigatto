@@ -1,6 +1,6 @@
 {
   "background": "quiz_background/quiz3bg.png",
-  "question": "- Hahaha! Outro para sofrer em meu castelo! Para você, a pergunta será a mais difícil de todas!\n\n- Ah, então foi você quem derrotou aquele inseto estranho? Tudo bem, ele será vingado!\n\n \"O que distingue a sobrecarga (overloading) da sobrescrita (overriding) de métodos em POO?\"",
+  "question": "- Hahaha! Outro para sofrer em meu castelo! Para você, a pergunta será a mais difícil de todas!\n\n- Ah, então foi você quem derrotou aquele cavaleiro deprimido? Tudo bem, ele será vingado!\n\n \"O que distingue a sobrecarga (overloading) da sobrescrita (overriding) de métodos em POO?\"",
   "answers": [
     "Overload muda parâmetros; Override muda método herdado.",
     "Overload -> classes diferentes, Override -> mesma classe.",
