@@ -1,6 +1,6 @@
 {
   "background": "quiz_background/quiz4bg.png",
-  "question": "- Guarda fortão, preciso devolver essas anotações que achei numa carroça quebrada. Viu alguém passar aqui?\n\n- Parado aí! Sim, uma pessoa que parecia atrasada entrou na nossa cidade. Mas ninguém entra aqui antes de responder minha pergunta:\n\n \"Qual a opção INCORRETA?\"",
+  "question": "- Cara enterrado na areia, preciso devolver essas anotações que achei numa carroça. Alguém passou aqui?\n\n- Parado aí! Sim, uma pessoa que parecia atrasada entrou na nossa cidade. Mas ninguém entra aqui antes de responder minha pergunta:\n\n \"Qual a opção INCORRETA?\"",
   "answers": [
     "classes são tipos abstratos de dados",
     "objetos são instâncias de uma classe",

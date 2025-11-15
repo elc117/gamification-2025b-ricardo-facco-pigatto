@@ -2,7 +2,7 @@
   "background": "map_background/background4.png",
   "player": {
     "image": "walk-sheet.png",
-    "x": 835,
+    "x": 750,
     "y": 850,
     "scale": 0.18
   },
@@ -10,16 +10,16 @@
     {
       "type": "quiz",
       "image": "quiz_entity/entity_4.png",
-      "x": 820,
-      "y": 80,
-      "w": 270,
-      "h": 234,
+      "x": 330,
+      "y": 100,
+      "w": 367,
+      "h": 300,
       "file": "json_files/quiz4.json"
     },
     {
       "type": "move",
       "image": "arrow_up.png",
-      "x": 860,
+      "x": 750,
       "y": 930,
       "w": 100,
       "h": 100,
@@ -30,7 +30,7 @@
     {
       "type": "move",
       "image": "arrow_down.png",
-      "x": 700,
+      "x": 620,
       "y": 1,
       "w": 100,
       "h": 100,
