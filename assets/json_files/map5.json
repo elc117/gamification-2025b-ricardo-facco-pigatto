@@ -26,6 +26,15 @@
       "spawnX": 660,
       "spawnY": 120,
       "file": "json_files/map4.json"
+    },
+    {
+      "type": "move",
+      "image": "arrow_up.png",
+      "x": 1230,
+      "y": 470,
+      "w": 100,
+      "h": 100,
+      "file": "json_files/map6.json"
     }
   ]
 }

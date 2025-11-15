@@ -1,0 +1,31 @@
+{
+  "background": "map_background/background6.png",
+  "player": {
+    "image": "walk-sheet.png",
+    "x": 730,
+    "y": 120,
+    "scale": 0.18
+  },
+  "entities": [
+    {
+      "type": "quiz",
+      "image": "quiz_entity/entity_6.png",
+      "x": 700,
+      "y": 400,
+      "w": 150,
+      "h": 90,
+      "file": "json_files/quiz6.json"
+    },
+    {
+      "type": "move",
+      "image": "arrow_down.png",
+      "x": 725,
+      "y": 1,
+      "w": 100,
+      "h": 100,
+      "spawnX": 1150,
+      "spawnY": 470,
+      "file": "json_files/map5.json"
+    }
+  ]
+}
