@@ -16,11 +16,6 @@ public class MoveEntity extends Entity {
     }
 
     @Override
-    public void update(float dt) {
-        
-    }
-
-    @Override
     public void render(SpriteBatch batch) {
         batch.draw(texture, pos.x, pos.y, width, height);
     }

@@ -34,20 +34,4 @@ public class Entity {
     public void dispose() {
         texture.dispose();
     }
-
-    public float getX() { 
-        return pos.x; 
-    }
-    public float getY() { 
-        return pos.y; 
-    }
-    public float getWidth() { 
-        return width; 
-    }
-    public float getHeight() { 
-        return height; 
-    }
-    public void setPosition(float x, float y) { 
-        pos.set(x, y); 
-    }
 }
