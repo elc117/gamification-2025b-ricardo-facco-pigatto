@@ -19,7 +19,7 @@ public class Main extends ApplicationAdapter {
         batch = new SpriteBatch();
         viewport = new FitViewport(1536, 1024);
 
-        MapModel mapModel = MapLoader.load("json_files/map1.json");
+        MapModel mapModel = MapLoader.load("json_files/map5.json");
         mapScene = new MapScene(mapModel);
     }
 

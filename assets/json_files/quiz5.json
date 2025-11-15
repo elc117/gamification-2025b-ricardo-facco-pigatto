@@ -1,11 +1,11 @@
 {
   "background": "quiz_background/quiz5bg.png",
-  "question": "a",
+  "question": "- Hey gênio, realiza um desejo: onde foi o aluno atrasado?\n\n- Claro! Eu revelarei a você que ele foi para a escola logo à frente se você responder minha pergunta!\n\n \"Qual dessas afirmações é correta sobre POO?\"\n\n- Mas, gênio, você já me revelou...",
   "answers": [
-    "a",
-    "a",
-    "a",
-    "a"
+    "Membros private são herdados pelas subclasses.",
+    "Um método public pode virar protected ou private na subclasse.",
+    "Um método protected pode virar private ou public na subclasse.",
+    "Protected dá um nível intermediário entre public e private."
   ],
   "correctIndex": 3
 }
