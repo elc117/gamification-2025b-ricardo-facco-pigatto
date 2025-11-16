@@ -162,7 +162,7 @@ o jogador trocasse de mapa. Para isso, fiz da mesma maneira que os requests de t
 a música atual e começa outra.
 
 # Diagrama de classes:
-<img src="assets/readme/rpgpoo_class_diagram.png"/><br>
+<img src="assets/readme/class_diagram.png"/><br>
 
 # Orientações para execução:
 
