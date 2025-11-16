@@ -1,4 +1,4 @@
-Spaces<div align="center">
+<div align="center">
   <h1>RpgPOO 🧙</h1>
   <h3>Gamification - Paradigmas de programação</h3>
   <p>Universidade Federal de Santa Maria</p>
