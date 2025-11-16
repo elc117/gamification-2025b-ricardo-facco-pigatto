@@ -145,12 +145,21 @@ consumeRequestedSpawn para serem consumidos na Main, chamando um novo PlayerMode
 
 <img src="assets/readme/move_back.gif" width="50%"/><br>
 > Agora consigo voltar mapas na posição correta.<br>
-<br>
 
 ### Desenvolvimento final
-<br>
+Para que o jogador vencesse o jogo, era necessário finalizar todos os quizzes. Antes de desenvolver essa lógica, percebi algo que eu deveria resolver:
+Ao voltar para um mapa anterior, o jogador pode abrir de novo um quiz já concluído.<br> 
+Por isso, na Main criei um HashSet (ao invés de List, pois HashSet garante que não existam elementos repetidos) de String que guarda todos os arquivos de quiz 
+que já foram concluídos. Quando cada MapScene é contruído, é verificado esse conjunto para marcar quizzes já resolvidos e impedir que sejam reabertos. 
+Dessa forma, no futuro, o jogo só vai ser considerado vencido quando todos os quizzes estiverem registrados no conjunto.<br>
 
-...
+Depois criei uma condição em MapScene que, se a quantidade de quizzes dentro de completedQuizzes fosse igual a 6, abre um simples background de fim de jogo. 
+Futuramente, pretendo criar um botão de jogar de novo, resetando todos os quizzes e voltando o player ao mapa inicial.
+
+Adicionei música ao jogo, com a classe Music da biblioteca LibGDX. Como eu queria colocar mais de uma música, dependendo do mapa em que o jogador está, criei a seguinte lógica:<br>
+Se uma MoveEntity tem "music", troca de música ao trocar mapa. Fiz as músicas serem aclopadas a MoveEntity pois se eu definisse uma música por mapa, ela seria tocada do início toda vez que
+o jogador trocasse de mapa. Para isso, fiz da mesma maneira que os requests de troca de mapa e requests de spawn, criando um requestedMusic. Na classe Main, se requestedMusic não é null, para 
+a música atual e começa outra.
 
 # Diagrama de classes:
 <img src="assets/readme/rpgpoo_class_diagram.png"/><br>
@@ -173,7 +182,20 @@ https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html - Por que usar n
 https://javadoc.io/doc/com.badlogicgames.gdx/gdx/1.9.5/com/badlogic/gdx/graphics/g2d/GlyphLayout.html - Sobre escrever na tela<br>
 https://libgdx.com/wiki/graphics/2d/fonts/bitmap-fonts - Sobre escrever na tela<br>
 https://stackoverflow.com/questions/16528187/java-should-i-use-float-or-float - Qual a diferença entre float e Float?<br>
+https://libgdx.com/wiki/audio/streaming-music - Música em LibGDX<br>
+
 # Créditos:
 https://greenpixels.itch.io/pixel-art-assets-5 - Player Asset by greenpixels_<br>
 https://opengameart.org/content/pine-tree-tiles - Pine tree asset by b_o<br>
-https://creativecommons.org/licenses/by/3.0 - Dark Empeor by TheBlackSword
+https://opengameart.org/content/dark-emperor - Dark Empeor by TheBlackSword<br>
+https://opengameart.org/content/castle-dungeon - Castle Dungeon Tiles by Gary Shaw<br>
+https://opengameart.org/content/js-monster-pack-4-ascent - Monster Pack by JosepghSeraph<br>
+https://opengameart.org/content/desert-tileset-0 - Desert Tileset by MrBeast<br>
+https://opengameart.org/content/cobblestone-tileset - Cobblestone Tileset by Cem Kalyoncu / Textures by Lamoot and West<br>
+https://opengameart.org/content/djinn – Djinn by Svetlana Kushnariova (Cabbit) & Jordan Irwin (AntumDeluge), licensed under OGA-BY 3.0.<br>
+https://opengameart.org/content/saloonpub-assets - Saloon Assets By André D. Louis<br>
+https://opengameart.org/content/boy-with-backpack - Boy with backpack by 
+Blind Harpy Gamedev<br>
+https://opengameart.org/content/woodland-fantasy - Woodland Fantasy music by Matthew Pablo<br>
+https://opengameart.org/content/heavy-dungeon - Heavy Dungeon music by MintoDog<br>
+https://opengameart.org/content/the-desert-of-dreams The Desert of Dreams music by Insydnis
