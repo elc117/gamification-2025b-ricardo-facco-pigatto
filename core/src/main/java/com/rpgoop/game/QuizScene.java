@@ -77,7 +77,7 @@ public class QuizScene {
         float y = touchPos.y;
 
         for (int i = 0; i < answers.size(); i++) {
-            float answerX = answersSlots[i][0] - 60;
+            float answerX = answersSlots[i][0] - 10;
             float answerY = answersSlots[i][1] - 100;
             float w = 300, h = 115;
 
