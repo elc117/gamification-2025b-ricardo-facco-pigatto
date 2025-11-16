@@ -4,6 +4,7 @@ import java.util.Set;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -13,6 +14,7 @@ public class Main extends ApplicationAdapter {
     private SpriteBatch batch;
     private FitViewport viewport;
     private MapScene mapScene;
+    private Music music;
 
     @Override
     public void create() {
@@ -21,6 +23,10 @@ public class Main extends ApplicationAdapter {
 
         MapModel mapModel = MapLoader.load("json_files/map1.json");
         mapScene = new MapScene(mapModel);
+
+        music = Gdx.audio.newMusic(Gdx.files.internal("music/forest_music.mp3"));
+        music.setLooping(false);
+        music.setVolume(0.4F);
     }
 
     @Override
@@ -35,6 +41,18 @@ public class Main extends ApplicationAdapter {
         }
 
         mapScene.update(Gdx.graphics.getDeltaTime(), viewport);
+
+        String reqMusic = mapScene.consumeRequestedMusic();
+        if (reqMusic != null) {
+            music.stop();
+            music.dispose();
+            music = Gdx.audio.newMusic(Gdx.files.internal(reqMusic));
+            music.setLooping(false);
+            music.setVolume(0.4F);
+            music.play();
+        } else if (!music.isPlaying()) {
+            music.play();
+        }
         
         String next = mapScene.consumeRequestedNextMap();
         if (next != null) {
@@ -74,5 +92,6 @@ public class Main extends ApplicationAdapter {
     public void dispose() {
         mapScene.dispose();
         batch.dispose();
+        music.dispose();
     }
 }

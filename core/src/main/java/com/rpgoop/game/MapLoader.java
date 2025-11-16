@@ -40,6 +40,7 @@ public final class MapLoader {
                 es.file = e.getString("file");
                 if(e.has("spawnX")) es.spawnX = e.getFloat("spawnX");
                 if(e.has("spawnY")) es.spawnY = e.getFloat("spawnY");
+                if(e.has("music")) es.music = e.getString("music");
                 model.entities.add(es);
             }
         }

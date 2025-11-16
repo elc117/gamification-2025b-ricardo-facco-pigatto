@@ -23,10 +23,11 @@ public class MapScene {
     private String requestedNextMap = null;
     private Float requestedSpawnX = null;
     private Float requestedSpawnY = null;
+    private String requestedMusic = null;
 
     public MapScene(MapModel model) {
         this.backgroundTex = new Texture(model.background);
-        this.endBackgroundTex = new Texture("check.png");
+        this.endBackgroundTex = new Texture("endbackground.png");
 
         MapModel.PlayerSpec p = model.player;
         this.player = new PlayerModel(p.x, p.y, 200f, 0f, 0f);
@@ -37,7 +38,7 @@ public class MapScene {
                 entities.add(new QuizEntity(e.image, e.x, e.y, e.w, e.h, e.file));
             } 
             else if ("move".equals(String.valueOf(e.type))) {
-                entities.add(new MoveEntity(e.image, e.x, e.y, e.w, e.h, e.file, e.spawnX, e.spawnY));
+                entities.add(new MoveEntity(e.image, e.x, e.y, e.w, e.h, e.file, e.spawnX, e.spawnY, e.music));
             }
         }
     }
@@ -81,6 +82,7 @@ public class MapScene {
                     requestedNextMap = me.getFile();
                     requestedSpawnX = me.getSpawnX();
                     requestedSpawnY = me.getSpawnY();
+                    requestedMusic = me.getMusic();
                     break;
                 }
             }
@@ -145,6 +147,12 @@ public class MapScene {
         Float[] tmp = new Float[] {requestedSpawnX, requestedSpawnY};
         requestedSpawnX = null;
         requestedSpawnY = null;
+        return tmp;
+    }
+
+    public String consumeRequestedMusic() {
+        String tmp = requestedMusic;
+        requestedMusic = null;
         return tmp;
     }
 

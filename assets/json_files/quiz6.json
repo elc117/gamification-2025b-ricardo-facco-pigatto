@@ -1,11 +1,11 @@
 {
   "background": "quiz_background/quiz6bg.png",
-  "question": "- Aluno meu, se levante. A prova era ontem, esqueceu?\n\n- Professor mago!! Eu não sabia, quebrei até minha carroça pra chegar aqui, me dá uma chance por favor!\n\n- Tudo bem. Responda essa pergunta, e será aprovado.\n\n \"Qual conceito permite trocar objetos sem erros?\"",
+  "question": "- Aluno meu, se levante. A prova era ontem, esqueceu?\n\n- Professor mago!! Eu não sabia, quebrei até minha carroça pra chegar aqui, me dá uma chance por favor!\n\n- Tudo bem. Responda essa pergunta, e será aprovado.\n\n \"Qual desses conceitos está INCORRETO?\"",
   "answers": [
-    "Encapsulamento ocultando variáveis internas da classe.",
-    "Herança reaproveitando atributos entre classes relacionadas.",
-    "Polimorfismo permitindo várias implementações para mesma interface.",
-    "Composição unindo objetos menores em estruturas complexas."
+    "Encapsulamento oculta variáveis internas da classe.",
+    "Herança reaproveita atributos entre classes relacionadas.",
+    "Polimorfismo permite mudar a assinatura durante override.",
+    "Composição une objetos menores em estruturas complexas."
   ],
   "correctIndex": 2
 }

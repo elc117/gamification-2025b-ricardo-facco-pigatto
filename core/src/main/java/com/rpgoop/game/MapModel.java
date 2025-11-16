@@ -22,5 +22,6 @@ public class MapModel {
         public String file;
         public Float spawnX;
         public Float spawnY;
+        public String music;
     }
 }

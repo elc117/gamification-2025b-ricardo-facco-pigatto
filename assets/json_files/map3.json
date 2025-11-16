@@ -25,7 +25,8 @@
       "h": 100,
       "file": "json_files/map2.json",
       "spawnX": 750,
-      "spawnY": 830
+      "spawnY": 830,
+      "music": "music/forest_music.mp3"
     }
   ]
 }

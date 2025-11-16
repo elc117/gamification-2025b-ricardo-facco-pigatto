@@ -34,7 +34,8 @@
       "y": 930,
       "w": 100,
       "h": 100,
-      "file": "json_files/map3.json"
+      "file": "json_files/map3.json",
+      "music": "music/boss_music.mp3"
     },
     {
       "type": "move",
@@ -43,7 +44,8 @@
       "y": 1,
       "w": 100,
       "h": 100,
-      "file": "json_files/map4.json"
+      "file": "json_files/map4.json",
+      "music": "music/desert_music.mp3"
     }
   ]
 }
