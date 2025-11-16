@@ -4,7 +4,7 @@
   "answers": [
     "Encapsulamento oculta variáveis internas da classe.",
     "Herança reaproveita atributos entre classes relacionadas.",
-    "Polimorfismo permite mudar a assinatura durante override.",
+    "Polimorfismo permite mudar a assinatura de método com override.",
     "Composição une objetos menores em estruturas complexas."
   ],
   "correctIndex": 2
