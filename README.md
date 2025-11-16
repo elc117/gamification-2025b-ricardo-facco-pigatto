@@ -146,7 +146,7 @@ consumeRequestedSpawn para serem consumidos na Main, chamando um novo PlayerMode
 <img src="assets/readme/move_back.gif" width="50%"/><br>
 > Agora consigo voltar mapas na posição correta.<br>
 
-### Desenvolvimento final
+## Desenvolvimento final
 Para que o jogador vencesse o jogo, era necessário finalizar todos os quizzes. Antes de desenvolver essa lógica, percebi algo que eu deveria resolver:
 Ao voltar para um mapa anterior, o jogador pode abrir de novo um quiz já concluído.<br> 
 Por isso, na Main criei um HashSet (ao invés de List, pois HashSet garante que não existam elementos repetidos) de String que guarda todos os arquivos de quiz 
