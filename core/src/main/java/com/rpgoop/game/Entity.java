@@ -10,13 +10,6 @@ public class Entity {
     protected float width;
     protected float height;
 
-    public Entity(String texturePath, float x, float y) {
-        this.texture = new Texture(texturePath);
-        this.width  = texture.getWidth();
-        this.height = texture.getHeight();
-        this.pos.set(x, y);
-    }
-
     public Entity(String texturePath, float x, float y, float w, float h) {
         this.texture = new Texture(texturePath);
         this.width = w;

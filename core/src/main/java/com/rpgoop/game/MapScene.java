@@ -11,6 +11,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class MapScene {     
     private final Texture backgroundTex;
+    private final Texture endBackgroundTex;
     private final PlayerModel player;
     private final PlayerView playerView;
     private final List<Entity> entities = new ArrayList<>();
@@ -25,6 +26,7 @@ public class MapScene {
 
     public MapScene(MapModel model) {
         this.backgroundTex = new Texture(model.background);
+        this.endBackgroundTex = new Texture("check.png");
 
         MapModel.PlayerSpec p = model.player;
         this.player = new PlayerModel(p.x, p.y, 200f, 0f, 0f);
@@ -91,11 +93,15 @@ public class MapScene {
             return;
         }
 
-        batch.draw(backgroundTex, 0, 0, worldW, worldH);
-        for (Entity e : entities) {
-            e.render(batch);
-        }
-        playerView.render(batch, player, dt);
+        if(completedQuizzes.size() < 6) {
+            batch.draw(backgroundTex, 0, 0, worldW, worldH);
+            for (Entity e : entities) {
+                e.render(batch);
+            }
+            playerView.render(batch, player, dt);
+        } else {
+            batch.draw(endBackgroundTex, 0, 0, worldW, worldH);
+        } 
     }
 
     public void setPlayerTarget(float worldX, float worldY) {
@@ -144,6 +150,7 @@ public class MapScene {
 
     public void dispose() {
         backgroundTex.dispose();
+        endBackgroundTex.dispose();
         playerView.dispose();
         for (Entity e : entities) e.dispose();
     }
