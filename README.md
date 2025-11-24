@@ -31,7 +31,7 @@ Após isso, vi que na wiki da LibGDX tinha outro tutorial, a criação do jogo c
 pra direita. No desenvolvimento, foi criado métodos para checar colisões da bolinha com o paddle e bordas da tela que, se verdadeiro, invertem 
 a velocidade da bolinha, fazendo um "bounce". Não fiz o tutorial inteiro, pois eu já queria começar o desenvolvimento do RpgPOO.<br>
 
-<img src="assets/readme/ballgame.gif" width="50%"/><br>
+![Image](https://github.com/user-attachments/assets/75b4ad40-6a96-499c-9fc5-7e0397c3a225)
 > GIF da execução do jogo, no estágio em que parei o desenvolvimento.<br>
 
 ## Começando o desenvolvimento:
@@ -62,7 +62,7 @@ e o player é mais simples, só com a imagem e escala do asset. Portanto, criei 
 fazendo assim "nested classes". PlayerSpec tem imagem, onde aparece e escala, enquanto EntitySpec tem isso tudo + tipo. A forma de instanciar objetos com classes nested
 é um pouco diferente, então pesquisei mais sobre.
 
-<img src="assets/readme/mapa1_entities.png" width="50%"/><br>
+<img width="50%" alt="Image" src="https://github.com/user-attachments/assets/41c123a1-040e-4be7-9b28-eabf25061433" /><br>
 > O mago (player) do lado esquerdo, e duas entidades (carroça quebrada e seta vermelha).
 
 ### Entidades
@@ -82,7 +82,7 @@ Depois, decidi fazer a lógica "player chegou perto de QuizEntity -> abre tela d
 A lógica de abertura de quiz foi feita em MapScene, no momento em que as entidades são atualizadas a cada frame (em MapScene.update()). Se tal entidade
 é da classe QuizEntity e player está perto o suficiente, abre tela de quiz.<br>
 
-<img src="assets/readme/quiz1_bg.gif" width="50%"/><br>
+<img width="50%" alt="Image" src="https://github.com/user-attachments/assets/3f822c56-6750-4b2b-9714-4fbf669c0941" /><br>
 > Nesse momento, a tela de quiz só tem o background e fecha ao clicar em qualquer lugar<br>
 
 Agora era a hora de colocar o texto na tela de quiz. Comecei criando o atributo question em QuizModel, carregando em QuizLoader, e mostrando na tela em
@@ -92,7 +92,7 @@ Depois fiz um ArrayList contendo as respostas, e fiz um vetor com as cordenadas 
 Certo. Precisei então colocar a lógica do "clicou na resposta certa -> sai do quiz", e para isso decidi criar uma "hitbox" (entre aspas, pois o que fiz no código está mais para uma gambiarra)
 para a resposta correta. Peguei a posição da resposta e verifiquei "clique está dentro da área da caixa de texto?" se sim, acerta e sai. Se não, continua na tela do quiz.<br>
 
-<img src="assets/readme/quiz1_completo.gif" width="50%"/><br>
+<img width="50%" alt="Image" src="https://github.com/user-attachments/assets/2ab090ac-b9fd-45b5-ab41-d245be296209" /><br>
 > Acerto ocorre ao clicar na alternativa correta e fecha o quiz.<br>
 
 Com a tela de quiz feita, faltava só uma coisa pra deixar o código geral do jogo praticamente completo: trocar de mapa ao chegar perto de uma entidade MoveEntity (seta vermelha).
@@ -122,7 +122,7 @@ Caso positivo, registra o pedido de troca de mapa.<br>
 Para esse registro, criei dentro de MapScene um atributo chamado requestedNextMap, que guarda o arquivo do próximo mapa de tal MoveEntity, e um método consumeRequestedNextMap, para ser chamado na Main.
 Dentro da Main, em render(), eu chamo o método criado em MapScene e, se de fato exite um request de mapa novo, dou dispose() no mapa que estava carregando, e crio um novo MapScene com o novo mapa do request.<br>
 
-<img src="assets/readme/move_funcionando.gif" width="50%"/><br>
+<img width="50%" alt="Image" src="https://github.com/user-attachments/assets/3947f074-aa88-40b9-ad84-18525380b65b" /><br>
 > MoveEntity está trocando mapa!!<br>
 
 Com isso, queria fazer com que fosse possível voltar ao mapa anterior, então coloquei um MoveEntity no mapa2 voltando para o arquivo mapa1.json. Quando testei, percebi
@@ -143,7 +143,7 @@ consumeRequestedSpawn para serem consumidos na Main, chamando um novo PlayerMode
 
 *durante esse processo, tive que pesquisar a diferença entre usar float e Float, pois o primitivo float precisa ter um valor, já o objeto Float pode ser null.<br>
 
-<img src="assets/readme/move_back.gif" width="50%"/><br>
+<img width="50%" alt="Image" src="https://github.com/user-attachments/assets/95d16e41-dcbd-41f3-b6e2-ca43227d6fae" /><br>
 > Agora consigo voltar mapas na posição correta.<br>
 
 ## Desenvolvimento final
@@ -162,13 +162,17 @@ o jogador trocasse de mapa. Para isso, fiz da mesma maneira que os requests de t
 a música atual e começa outra.
 
 # Diagrama de classes:
-<img src="assets/readme/class_diagram.png"/><br>
+<img width="1113" height="856" alt="Image" src="https://github.com/user-attachments/assets/565acf89-629e-4d60-bbb2-7538969f2858" />
 
 # Orientações para execução:
-
+Java JDK precisa estar instalado.<br>
+No terminal, na raiz do projeto, rode:
+```shell
+./gradlew lwjgl3:run
+```
 
 # Resultado final:
-
+https://github.com/user-attachments/assets/60c29fa2-fcbf-4996-8e07-c2aeac9ff97d
 
 # Referências:
 https://github.com/elc117/game-2024b-vmferreira - Inspiração para o jogo<br>
